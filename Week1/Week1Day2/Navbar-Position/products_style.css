@@ -1,0 +1,28 @@
+
+.container {
+    margin: auto;
+    border: solid 3px orange;
+    width: 100%;
+    margin-top: 3rem;
+  }
+
+
+.item {
+    display: inline-block;
+    margin: 2rem;
+    min-height: 300px;
+    max-width: 300px;
+    min-height: 350px;
+    max-height: 350px;
+    border: solid 3px gray;
+    padding: 1rem;
+}
+
+.item p{
+    padding: 20px;
+
+}
+
+
+.item button{
+}
