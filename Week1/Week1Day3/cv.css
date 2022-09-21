@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:90vw; 
+    height: 100vh; 
+}
+
+header{
+    padding: 3rem;
+    height: 30%;
+    width: 90%;
+border: solid rebeccapurple 2px;}
+
+section{
+    display: flex;
+    flex-direction: row;
+    height: inherit;
+    width:80vw;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    /* border: solid black 2px; */
+    background-color: aqua;
+
+}
+
+.contact{
+    border: solid red 2px;
+    height: 20vh;
+}
+
+.education{
+
+    border: solid orange 2px;
+
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    border: solid black 2px;
+    background-color: bisque;
+
+}
+
+.profile{
+    border: solid black 2px;
+
+}
+    
+.experience{
+    border: solid black 2px;
+
+}
+.languages{
+    border: solid black 2px;
+
+}
+
+.hobbies{
+    border: solid black 2px;
+
+}

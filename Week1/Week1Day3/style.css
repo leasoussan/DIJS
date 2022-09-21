@@ -1,0 +1,155 @@
+
+
+body {
+  background-image:url('images/avenger.jpg');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:start;
+  /* margin-top: 100px; */
+   }
+   
+   
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
+
+
+
+h1 {
+    font-size: 100px;
+    color: lightblue;
+
+   }
+p {
+  /* margin-top: 20%; */
+  padding: 20px;
+  width: 60vw;
+  height: 30vh;
+  background-color: whitesmoke; opacity:80%;
+  color: black;
+  font-size: larger;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+
+
+
+.flag {
+  display: inline-block;
+  width: 200px;
+  height: 400px;
+  border: solid red 3px;
+}
+
+.red{
+  background-color: red;
+}
+.white{
+  background-color: white;
+}
+.blue{
+  background-color: blue;
+}
+
+
+
+
+
+
+
+
+@media all and (min-width: 1024px) and (max-width: 1280px) { 
+    nav ul{
+      background-color: red;
+    }
+    nav li {
+      font-size: large;
+    }
+    h1 {
+      font-size: xx-large;
+    }
+    .image {
+       width: 80vw ;
+      height: 100vh;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) { 
+  nav ul{
+  
+    background-color: green;
+  }
+  nav li {
+    font-size: smaller;
+
+  }
+  .image {
+    width: 80vw ;
+    height: 100vh;
+  }
+  h1 {
+    font-size: x-large;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) { 
+  nav ul{
+  
+    background-color: orange;
+  }
+  nav li {
+    float: right;
+    font-size: small;
+  }
+  .image {
+    width: 80vw ;
+    height: 100vh;
+  }
+  h1 {
+    font-size: larger;
+  }
+}
+
+@media all and (max-width: 480px) { 
+  nav {
+   
+  }
+  nav ul{
+    display: block;
+    background-color: grey;
+    color: #111;
+  }
+  nav li a{
+    font-size: medium;
+    color: black;
+  }
+  .image {
+    width: 80vw ;
+    height: 100vh;
+  }
+  h1{
+    font-size: small;
+  }
+}
