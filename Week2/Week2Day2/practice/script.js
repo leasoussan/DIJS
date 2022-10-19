@@ -50,14 +50,16 @@ const userCart = {
 userCart["lastName"] = "Smith";
 console.log(userCart);
 
-const pearPrice = userCart["prices"]["pear"];
-const taxeRate =  1.17;
+// const pearPrice = userCart["prices"]["pear"];
+// const taxeRate = 17/100;
+// taxeRate += 1;
+// userCart["prices"]["pear"] = pearPrice * taxeRate;
+// console.log(userCart["prices"]["pear"]);
 
-userCart["prices"]["pear"] = pearPrice * taxeRate;
-console.log(userCart["prices"]["pear"]);
+userCart["prices"]["pear"] *= 1.17;
+console.log(userCart["prices"]["pear"])
 
+let userFruits = prompt("What's your favorit Fruits between Apple, banaba and pears").toLocaleLowerCase();;
 
-const userFruits = prompt("What's your favorit Fruits between Apple, banaba and pears");
-const response = userFruits.toLocaleLowerCase();
-console.log(userCart["prices"][response]);
+console.log(userCart["prices"][userFruits]);
 
