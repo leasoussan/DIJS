@@ -42,6 +42,5 @@ console.log(myFuturAge)
 const userAnswer = prompt("what's your favorit pet")
 console.log(userAnswer)
 
-
-
 console.log(country.indexOf("l"))
+console.log(country.length("l"))
