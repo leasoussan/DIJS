@@ -101,6 +101,7 @@ if( users.length === 0){
 } else if(users.length === 2){
     console.log(users[0] + " and" + users[1]+ "are conencted" )
 } else {
-    
-    console.log(users[0], users[1] + "and " + users.length + "more are connected")
+    connectedUser = users.length
+    connectedUser -= 2
+    console.log(users[0], users[1] + "and " +  connectedUser + "more are connected")
 }
