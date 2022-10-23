@@ -29,6 +29,12 @@ let sentence = "peopple are generaly not bad";
 let splitSentenc = sentence.split(' ')
 console.log(splitSentenc)
 
+// regex 
+let findNot = sentence.match(/not/g)
+let findBad = sentence.match(/bad/g)
+console.log("here", findNot)
+console.log("here", findBad)
+
 let wordNot = splitSentenc.indexOf("not")
 let wordBad = splitSentenc.indexOf("bad")
 
