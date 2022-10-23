@@ -228,20 +228,29 @@ for(let key in details){
 
 // Exercise 7 : Secret Group
 // Instructions
-
+function findSecretWord(){
 const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
-
+names.sort()
 //     A group of friends have decided to start a secret society. The society’s name will be the first letter of each of their names sorted in alphabetical order.
 //     Hint: a string is an array of letters
 //     Console.log the name of their secret society. The output should be “ABJKPS”
-secretWord= []
+let secretWord= "";
 
-for(x of names){
+for(let x of names){
     secretWord += x.charAt(0)
     }
     
-
 console.log(secretWord);
 
+}
+
+findSecretWord()
+
+
+// or 
+// for(let i=o; i<names.length; i++){
+//     const name = names[i];
+//     secretWord += name
+// }
 
 // SORTING TODO
