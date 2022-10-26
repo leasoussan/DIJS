@@ -6,11 +6,10 @@
 
     
 function playTheGame(){
-let computerNumber = Math.floor(Math.random() *11)  
-const startQuestion = confirm("Hi do you want to play")
-
-if (startQuestion == false){
+const readyToPlay = confirm("Hi do you want to play")
+if (readyToPlay == false){
     alert("goodby then");
+    return;
 }else{
     let askNumber= Number(prompt("PLEASE CHOOSE A NUMBER"));
     // or if)(typeof askNumber !== typeof(askNumber))
@@ -24,14 +23,17 @@ if (startQuestion == false){
     };   
     
     };
-    
-    }
+}
+    let computerNumber = Math.floor(Math.random() *11)  
+
+  
 
 
 function compareNumbers(askNumber,computerNumber){
     const trials = 3;
 
-    for(let i =0; trials<=3; i++){
+    while(trials< 3){
+        askNumber;
         if(askNumber == computerNumber){
             alert("You WINNERRRRRRR!!!");
             askNumber;
@@ -41,9 +43,23 @@ function compareNumbers(askNumber,computerNumber){
         }else if(askNumber > computerNumber){
             alert("you'r number is smaller sorry")
             askNumber;
-        }
+        };
+
+    }
+
+    // for(let i =0; trials<=3; i++){
+    //     if(askNumber == computerNumber){
+    //         alert("You WINNERRRRRRR!!!");
+    //         askNumber;
+    //     }else if(askNumber <computerNumber){
+    //         alert("your number is smaller ");
+    //         askNumber;
+    //     }else if(askNumber > computerNumber){
+    //         alert("you'r number is smaller sorry")
+    //         askNumber;
+    //     }
     };
-};
+// };
 
 //
 
