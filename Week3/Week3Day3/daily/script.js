@@ -11,8 +11,13 @@
 
 //     Hint : Check out keycodes in Javascript or Regular Expressions
 
+const textResults = document.querySelector('input');
+const authChar = /[A-Za-z]/;
+textResults.addEventListener("keydown", showText);
 
-function showText(){
-    const textResults = document.getElementById('text').value;
-    
+function showText(event){
+    console.log(event.key);
+    if(!authChar.test(event.key)){
+        event.preventDefault()
+    }
 }
