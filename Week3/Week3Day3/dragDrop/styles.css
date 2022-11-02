@@ -1,0 +1,28 @@
+.dropzone{
+    width: 100px;
+    height: 100px;
+    border: solid black 2px;
+
+}
+
+
+.dragItem{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: antiquewhite;
+}
+
+.dragItemTwo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: orange;
+}
+
+
+.dragItemThree{
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+}
