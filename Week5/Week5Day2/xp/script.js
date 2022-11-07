@@ -51,7 +51,6 @@ function getData(){
 
 xhr.onload = function (){
     if(xhr.status === 200) {
-
         displayGif(xhr.response.data)
     } else {
         console.log("merde");
