@@ -1,0 +1,56 @@
+body{
+    display: block;
+    background-color: antiquewhite;
+    padding-left: 1rem;
+}
+
+
+header{
+    display: inline-flex;
+    align-items: center;
+    height: 10vh;
+    width: 95%;
+    margin:2rem 0 2rem 0;
+    background-color: brown;
+    padding-top: 1rem;
+}
+
+
+
+#logo{
+    width: 20%;
+    padding-left: 1rem;
+
+}
+
+#logoText{
+    font-size: xx-large;
+    font-family: 'SEGA LOGO FONT', sans-serif;                                         
+    color: antiquewhite;
+}
+
+#search{
+    margin-left: 15%;
+    width: 25%;
+    height: 3rem;
+}
+
+#searchButton{
+    background-color: orange;
+    width: 150px;
+    height: 2rem;
+    margin-left: 1rem;
+}
+
+
+#robotsList{
+    width: 95%;
+    height: 80vh;
+    background-color: wheat;
+}
+
+.roboCard{
+    border: solid 3px red;
+    width: 300px;
+    height: 250px;
+}

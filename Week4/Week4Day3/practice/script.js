@@ -1,3 +1,6 @@
+// some(), filter(), map()forEach(), every(), find()> are all array methodes that are using a call back function  with 3 parameter 
+// (element, index, array)
+
 // const restaurant = ["200", "23", "24", "35"];
 // const VAT = 1.17
 
