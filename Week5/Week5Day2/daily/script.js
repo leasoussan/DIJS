@@ -11,38 +11,39 @@
 // Allow the user to remove all of the GIFs by clicking a DELETE ALL button.
 
 
-const getSearchButton = document.querySelector('#searchgif_btn');
-getSearchButton.addEventListener('click', getUserSearch) ;
+const getSearchButton = document.querySelector('#gif_form');
+// here the form is the target that I could get it as an object and to go in it look for information
+getSearchButton.addEventListener('submit', getUserSearch) ;
 
 
 function getUserSearch (event) {
     event.preventDefault();
+    // console.log(event.target.searchText.value);
     const getUserInput= document.querySelector('.searchText').value;   
-    const url = `https://api.giphy.com/v1/gifs/search?q=${getUserInput}&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`
-    ;
+    console.log(getUserInput);
+    const url = `https://api.giphy.com/v1/gifs/random?tag=${getUserInput}&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`;
+    console.log(url);
     getData(url);
 }
 
-const xhr = new XMLHttpRequest()
 
 function getData(url) {
-    xhr.open("GET", url)
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
     xhr.responseType = "json";
-    xhr.send()
+    xhr.send();
     console.log("xhr log",xhr);
-}
 
-
-xhr.onload = function(){
+    xhr.onload = function(){
     if(xhr.status=200){
         console.log("ok la");
-        const getFirstGif = xhr.response.data[0];
+        const getFirstGif = xhr.response.data.url;
         getDisplayGifs(getFirstGif)
     } else{
         console.log("zuttt");
     };
 }
-
+}
 
 function getDisplayGifs (response) {
     const getContainer =document.querySelector(".showGif");
@@ -51,7 +52,7 @@ function getDisplayGifs (response) {
     deletButton.setAttribute('id', 'delete_btn')
         deletButton.textContent ="DELETE";    
         getContainer.appendChild(deletButton);
-        createBox.src = response.url;
+        createBox.setAttribute("src", response)
         createBox.setAttribute('class', 'gif_display')
         createBox.style.width = '300px';
         getContainer.appendChild(createBox);
@@ -59,10 +60,10 @@ function getDisplayGifs (response) {
 }
 
 
-const deletButton = document.getElementById('delete_btn');
-deletButton.addEventListener('click', deleteGifDisplay);
+// const deletButton = document.getElementById('delete_btn');
+// deletButton.addEventListener('click', deleteGifDisplay);
 
-function deleteGifDisplay (){
-    const getGifToDelet = document.getElementById('gif_display');
-    console.log(getGifToDelet);
-}
+// function deleteGifDisplay (){
+//     const getGifToDelet = document.getElementById('gif_display');
+//     getGifToDelet.delete()
+// }

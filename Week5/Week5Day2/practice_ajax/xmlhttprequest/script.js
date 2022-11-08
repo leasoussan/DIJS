@@ -21,7 +21,6 @@ function getData() {
     xhr.send();
 }
 
-
 //4. Listen for the response
 // event onload is going to be fired when we receive the response
 // listen for the response to come back
