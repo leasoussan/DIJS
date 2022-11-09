@@ -68,29 +68,63 @@ const morse = `{
 
 // Chain the three functions.
 
-function toJs(toParse) {
-    const code = JSON.parse(toParse);
+// function toJs(toParse) {
+//     const code = JSON.parse(toParse);
 
-    const getPromise = new Promise((resolve, reject) => {
-        // console.log("code here", );
-        if (code[0] != '') {
-            console.log("Im in");
-            resolve(toMorse(code));
-        } else {
-            reject(console.log("empty stuff here"))
-        }
-    })
-}
+//     const getPromise = new Promise((resolve, reject) => {
 
-toJs(morse)
+//            if(Object.keys(getPromise).length != 0){ 
+//             console.log("Im in");
+//             resolve(toMorse(code));
+//         } else {
+//             reject(console.log("empty stuff here"))
+//         }
+//     });return getPromise
+// }
 
-function toMorse(morseJS) {
-    const getInput = prompt("write something here").split('');
-    const newPromise = new Promise((resolve, reject) => {
-              for(let letter of getInput){
-                console.log("lol");
-              }
-        })
+// toJs(morse)
 
-    }
+// function toMorse(morseJS) {
+//     const getInput = prompt("write something here").split('');
+//     const newPromise = new Promise((resolve, reject) => {
+//               for(let letter of getInput){
+//                 console.log("lol");
+//               }
+//         })
+
+//     }
     
+
+    // first we asked a user word - we spliit and we put to lower case 
+    // create a preomise 
+
+
+
+    function transfromtToObject(jsonString){
+        const promiseOne = new Promise((resolve, reject)=>{
+            const morseObj =JSON.parse(jsonString)
+            if(Object.keys(morseObj).length === 0){// if the object is empty 
+                reject("its empty")
+            }else{
+                resolve(morseObj)
+            }
+        })
+        return promiseOne
+    }
+
+
+    function translateTomore(morseObj, word){
+// here i split the word first to ave it in an array 
+        const wordArr = word.split('');
+        let morseArrayFinal=[];
+        for(let letter of wordArr){
+            if (letter in morseObj){
+                morseArrayFinal.push(morseObj[letter])
+                resolve(morseArrayFinal)
+            }
+        }
+    }
+
+
+    transfromtToObject(morse, "hello")//returne a promise with a result that is an object
+    .then((morseObj)=> translateTomore(morseObj))//we consume the pormise and pass the object inside

@@ -43,59 +43,122 @@
 // If the giphy API doesn't find a gif (because the word can be strange) - display a gif that says "404 ERROR"
 
 
-function getWord (){
-    
-    fetch('http://random-word-api.herokuapp.com/word?number=1')
-    .then((res) => {
-        if(res.status != 200){
-            throw new Error("nothing here")
-        }else{
-            return res.json()
-        }
-    })
-    .then((gifObject) => getGif(gifObject))
+// function getWord (){
+
+//     fetch('http://random-word-api.herokuapp.com/word?number=1')
+//     .then((res) => {
+//         if(res.status != 200){
+//             throw new Error("nothing here")
+//         }else{
+//             return res.json()
+//         }
+//     })
+//     .then((gifObject) => getGif(gifObject))
+// }
+
+
+// getWord()
+
+// function getGif(gifResults){
+//     // console.log("gifObject",gifResults)
+//     const url = `https://api.giphy.com/v1/gifs/random?tag=${gifResults}&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`;
+//     // console.log("the url", url);
+//     fetch(url)
+//     .then((response) => {
+//         // throw new Error()// to check error 
+//         if(response.status != 200){
+//             throw new Error("error in the first then")
+//         }else{
+//             console.log("this works well");
+//             return response.json()// here i first get a response then i turn it into JS object by calling json()
+//         }
+//     })
+//     .then((gifObj) => {
+//         displayGif(gifObj)// here i want to take the response and to send it to a function that will display it 
+//         console.log("lastfunction of getGif", gifObj);
+//     })
+//     .catch((err) => {
+//         fetch('https://api.giphy.com/v1/gifs/random?tag=notworking&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My')
+//         .then((response) => {
+//             return response.json()
+//         })
+//         .then((err_gif) => {
+//             displayGif(err_gif);
+//             alert("this is a 404")
+//         })
+//         })
+//     }
+
+
+
+
+// function displayGif(gifImg){
+//     console.log("gif deatial object",gifImg);
+//     const selectConainter = document.querySelector('#gifDisplay');
+//     const createBox = document.createElement('img');
+//     createBox.src = gifImg.data.images.original.url;
+//     selectConainter.appendChild(createBox);
+//     }
+
+
+
+async function getWord() {
+    const getGif = await fetch('http://random-word-api.herokuapp.com/word?number=1')
+    if (getGif.status != 200) {
+        throw new Error("nothing here")
+    } else {
+        const gifObject = await getGif.json();
+        return gifObject[0]
+    };
+   
 }
 
-        
-getWord()
 
-function getGif(gifResults){
-    // console.log("gifObject",gifResults)
-    const url = `https://api.giphy.com/v1/gifs/random?tag=${gifResults}&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`;
-    // console.log("the url", url);
-    fetch(url)
-    .then((response) => {
-        // throw new Error()// to check error 
-        if(response.status != 200){
-            throw new Error("error in the first then")
-        }else{
-            console.log("this works well");
-            return response.json()// here i first get a response then i turn it into JS object by calling json()
-        }
-    })
-    .then((gifObj) => {
-        displayGif(gifObj)// here i want to take the response and to send it to a function that will display it 
-        console.log("lastfunction of getGif", gifObj);
-    })
-    .catch((err) => {
-        fetch('https://api.giphy.com/v1/gifs/random?tag=notworking&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My')
-        .then((response) => {
-            return response.json()
-        })
-        .then((err_gif) => {
-            displayGif(err_gif);
-            alert("this is a 404")
-        })
-        })
+async function getGif(gifResults) {
+    const url = await fetch(`https://api.giphy.com/v1/gifs/random?tag=${gifResults}&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`);
+    if (url.status !== 200) {
+        throw new Error("error in the fetch")
+    } else {
+        const gifImage = await url.json()
+        const url = gifImage.data.images.original.url;
+
+        return url;// here i first get a response then i turn it into JS object by calling json()
+    }
     }
 
 
+async function getDsiplay(){
+    try{
+        const word = await getWord()
+        console.log(word);
+        const gif = await getGif()
+        console.log("sadfsadf",gif);
 
-
-function displayGif(gifImg){
-    console.log("gif deatial object",gifImg);
-    const selectConainter = document.querySelector('#gifDisplay');
-    const createBox = document.createElement('img');
-    createBox.src = gifImg.data.images.original.url;
-    selectConainter.appendChild(createBox);
+        displayGif(gif); 
+    
+    } catch(err){
+        displayGif("https://media.giphy.com/media/JT7Td5xRqkvHQvTdEu/giphy.gif")
+        console.log("ma kore");
     }
+    } 
+
+
+
+function displayGif(gif){
+    const getContainer = document.querySelector("#gifDisplay");
+    const createGif = document.createElement('img');
+    createGif.src = gif;
+    getContainer.appendChild(createGif)
+}
+
+getDsiplay()
+
+
+
+// function displayGif(gifImg) {
+//     console.log("gif deatial object", gifImg);
+//     const selectConainter = document.querySelector('#gifDisplay');
+//     const createBox = document.createElement('img');
+//     createBox.src = gifImg.data.images.original.url;
+//     selectConainter.appendChild(createBox);
+// }
