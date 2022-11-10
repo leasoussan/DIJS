@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    background-image: url('https://skyandtelescope.org/wp-content/uploads/Dumbbell_Nebula_from_NA.jpg');
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    border: solid red 3px;
+    
+}
+#logo{
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 300px;
+
+    border: solid yellow 3px;
+    background-image: url('https://external-preview.redd.it/QzYuoTIwrCmM-VSxS0iOvA5WeDkDqXsKa3e2FfOwmVE.jpg?width=640&crop=smart&auto=webp&s=6513a05887de4e443a3f29029029222a248e635e');
+}
+
+#avatar_detail_display{
+    width: 500px;
+    height: 300px;
+    border: solid white 4px;
+    color: aliceblue;
+}
+
+#search_btn{
+    width: 250px;
+    height: 3rem;
+}
+
+h3{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+
+#oneDetail_elem{
+    display: flex;
+    flex-direction: row;
+}
