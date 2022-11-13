@@ -1,0 +1,2 @@
+SELECT * from items 
+WHERE last_name = 'smith';

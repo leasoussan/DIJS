@@ -1,0 +1,2 @@
+ALTER TABLE customers 
+RENAME COLUMN customer_name TO first_name
