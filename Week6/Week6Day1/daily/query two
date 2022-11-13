@@ -1,0 +1,4 @@
+INSERT INTO actors (first_name, last_name, age, number_oscars)
+VALUES ('Lea', 'Soussan', , 7);
+
+error will come
