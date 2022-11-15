@@ -1,0 +1,29 @@
+CREATE TABLE customer(
+	customer_id  SERIAL PRIMARY KEY,
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE customer_profile(
+	profile_id INTEGER REFERENCES customer (customer_id),
+	isLoggedIn BOOLEAN DEFAULT false
+);
+
+
+INSERT INTO customer (first_name, last_name)
+VALUES
+('John', 'Doe'),
+('Jerome', 'Lalu'),
+('Lea', 'Rive')
+
+SELECT * FROM customer
+
+UPDATE customer_profile
+SET isLoggedIn=true
+FROM customer c
+WHERE c.first_name iLIKE '%john%' AND c.last_name iLIKE '%doe%'
+SET isLoggedIn=false
+WHERE c.first_name iLIKE '%jerome%' AND c.last_name iLIKE '%lalu%'
+
+
+SELECT isLoggedIn FROM customer_profile 
