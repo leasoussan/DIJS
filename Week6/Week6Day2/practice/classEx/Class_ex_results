@@ -1,0 +1,33 @@
+CREATE TABLE city_info (
+event_datetime timestamp NOT NULL, 
+city VARCHAR(50) NOT NULL, 
+temperature decimal NOT NULL,
+light decimal NOT NULL, 
+airquality_raw decimal NOT NULL, 
+sound decimal NOT NULL, 
+humidity decimal NOT NULL, 
+dust decimal NOT NULL );
+
+
+COPY city_info (event_datetime, city, temperature, light, airquality_raw, sound, humidity, dust)
+FROM '/home/leas/DI/Week6/Week6Day2/practice/classEx/city_info.csv'
+DELIMITER ','
+CSV HEADER;
+
+
+
+SELECT * from city_info;
+
+-- 1. How many rows does the table have by city 
+SELECT city, COUNT(city) FROM city_info GROUP BY city 
+
+2.
+SELECT AVG(dust) AS average_dust FROM city_info WHERE city="Boston" and event_datetime
+BETWEEN '01-03-2016' AND '05-03-2015';
+
+-- 3.how many row does the table have about "san Fransisco"
+SELECT COUNT(city) FROM city_info WHERE city ='San Fransisco';
+
+-- 4 wher and when - in hours its the noisiest in the world 
+SELECT city, EXTRACT(HOUR from timestemp)) AS hour_day FROM city_info
+WHERE sound = (SELECT MAX(sound) FROM city_info)
