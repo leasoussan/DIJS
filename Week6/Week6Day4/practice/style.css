@@ -1,0 +1,11 @@
+.img_display{
+    width: 250px;
+    height: 250px;
+    scale: 1;
+    border: solid 3px red;
+}
+
+.item_diplay{
+    width: 350px;
+    border: solid 4px orange;
+}
