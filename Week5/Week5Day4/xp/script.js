@@ -8,18 +8,18 @@
 
 
 
-// async function fetchFunction(){
-//     const getData = await fetch("https://www.swapi.tech/api/starships/9/");
+async function fetchFunction(){
+    const getData = await fetch("https://www.swapi.tech/api/starships/9/");
     
-//     if(getData.status === 200){
-//         const getObject = await getData.json();
-//         return console.log(getObject);
-//     }
+    if(getData.status === 200){
+        const getObject = await getData.json();
+        return console.log(getObject);
+    }
     
     
-// }
+}
 
-// fetchFunction()
+fetchFunction()
 
 
 // // ______________________

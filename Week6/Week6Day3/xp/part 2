@@ -1,0 +1,27 @@
+-- many to many - creating a junction table 
+
+
+CREATE TABLE student(
+	
+)
+
+CREATE TABLE book(
+)
+
+INSERT INTO book (title. author)
+VALUES ('book 1', 'author 1'),
+('book 1', 'author 1'),
+('book 1', 'author 1')
+
+INSERT INTO student(name, age)
+VALUES('Jhon')
+
+INSERT INTO books (book_fk_id, student_fk_id)
+VALUES (
+(SELECT book_id FROM book WHERE title iLIKE '%book 1%' ),
+	(SELECT student_id FROM student WHERE iLIKE 'jhon'),
+	now()
+)
+
+-- here we have to make a subquery 
+

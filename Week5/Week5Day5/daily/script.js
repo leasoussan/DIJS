@@ -55,7 +55,7 @@ const collectUserRequest = (event) => {
     getCurrencies(fromCountryEx, fromAmountEx, toCountryEx)
 
 }
-
+// check the event to be 'change" event 
 
 async function getCurrencies(fromCountryEx, fromAmountEx,toCountryEx) {
     try {
@@ -65,7 +65,7 @@ async function getCurrencies(fromCountryEx, fromAmountEx,toCountryEx) {
         const getFinalAmount = usdCurrencytoJson.conversion_result;
         displayResults(getConversionRate, getFinalAmount, toCountryEx)
     }catch{
-        throw new Error("here")
+        throw new Error("error here")
     }
     }
 
