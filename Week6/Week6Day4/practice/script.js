@@ -79,8 +79,8 @@ function saveToLocalStogare(event){
     console.log(getItemPrice);
     const completItem = [getItemName,getItemPrice]
     chart.push(completItem)
-    // localStorage.setItem('allproduct', JSON.stringify(chart))
-    localStorage.setItem('allproduct', chart)
+    localStorage.setItem('allproduct', JSON.stringify(chart))
+    // localStorage.setItem('allproduct', chart)
 
     // needs to stringfy array 
 }

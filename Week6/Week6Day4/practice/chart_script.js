@@ -4,9 +4,9 @@
 
 
 (function getChartList(){
-    const getChartData = localStorage.getItem('allproduct');
+    const getChartData = JSON.parse(localStorage.getItem('allproduct'));
     console.log(getChartData);
-for(item in getChartData){
+for(item of getChartData){
     console.log(item[0]);
 }
 //     console.log(typeof getChartData);
