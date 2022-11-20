@@ -71,7 +71,7 @@ function getProduct() {
 // localStorage.removeItem(chart)
 
 getProduct() 
-const chart =[]
+const chart =[] || JSON.parse(localStorage.getItem("allproduct"))
 
 function saveToLocalStogare(event){
     const getItemName = event.target.parentElement.children['item_name'].innerText;
