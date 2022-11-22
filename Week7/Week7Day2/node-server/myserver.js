@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
     
     res.write('<h1>HERE IS the first line</h1>');
     res.write('<h3>HERE IS the second line</h3>');
-    res.write('<p>HERE IS the paragraph line</h3>');
+    res.write('<p>HERE IS the  line</h3>');
           
     res.end()
 }
