@@ -22,7 +22,7 @@ app.listen(process.env.PORT, ()=>{
 
 app.get('/', (req, res)=>{
     const jsonUser = user;
-    res.json(jsonUser)
+    res.json(jsonUser)  
     res.end()
 })
 
