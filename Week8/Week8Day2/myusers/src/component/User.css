@@ -1,0 +1,16 @@
+.dilb {
+    display : inline-block
+}
+
+.bsb {
+    border: 3px solid green;
+
+}
+
+
+.ta {
+    text-align: center;
+}
+
+/* it good to seprate the styles in orrder to reuse it 
+in order to put it on user.js i need to import it there on the page */
