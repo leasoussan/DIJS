@@ -1,12 +1,12 @@
 .dilb {
-    display : inline-block
+    display : inline-block;
+    background-color: aquamarine;
 }
 
 .bsb {
     border: 3px solid green;
 
 }
-
 
 .ta {
     text-align: center;
