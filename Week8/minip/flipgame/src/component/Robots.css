@@ -1,0 +1,35 @@
+.board_display {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    overflow: auto;
+    border: solid 3px aqua;
+    /* height: 100%; */
+
+}
+
+
+.card_style {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    width: 250px;
+    border: solid 3px red;
+    margin: 2rem;
+    position: relative;
+     cursor: pointer;
+}
+
+.card_style img {
+    justify-content: center;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.card_style div{
+    height: 20%;
+    background-color: antiquewhite;
+}
