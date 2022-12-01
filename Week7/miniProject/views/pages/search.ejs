@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEARCH</title>
 </head>
+
 <body>
 
-<%- include('../partials/head'); %>
- 
-<%- include('../partials/header') %>
+    <%- include('../partials/head'); %>
+
+        <%- include('../partials/header') %>
 
 
-<div class="search_form">
-    <label for="caterogy_search">Title Search</label>
-    <input type="text" id ="title_search">
-    <button type="submit">SEARCH</button>
-    <label for="caterogy_search">Category Search</label>
-    <select name="categories" id="category_search"></select>
+            <div class="search_form">
+                <label for="caterogy_search">Title Search</label>
+                <input type="text" id="title_search">
+                <button type="submit">SEARCH</button>
+                <label for="caterogy_search">Category Search</label>
+                <select name="categories" id="category_search">
+                    
+                <option value="Select_category" selected>Select Categorye</option>
+                <% data.items.forEach(item, =>{  %>
+                    <option value='<%= item.categories %>' />
+                    <%=item.categories %>
+                        </option>
+                       <% })%>
+                    </select>
+            </div>
 
-</div>
 
 
-<%- include('../partials/footer.ejs') %>
+            <%- include('../partials/footer.ejs') %>
 
-<script type="module">
-    import * as script from '../../public/script.js';</html>
+                <script>
+
+
+                </script>

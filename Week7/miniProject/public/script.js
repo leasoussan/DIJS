@@ -1,6 +1,5 @@
 
-const cors = require('cors');
-
+console.log("hello");
 // const displayImage = document.getElementsByTagName('img');
 
 // for (let i = 0; i < displayImage.length; i++) {
@@ -31,24 +30,20 @@ const cors = require('cors');
 // }
 // apiRequest()
 
-async function feedFetch() {
-    try {
-        const feed = await fetch('https://www.thefactsite.com/feed/');
-        if(feed.status === 200){
-            console.log(feed);
-            const feedFetchItems = await feed.items.json();
-            console.log(feedFetchItems);
-        }else{
-            throw new console.error("nop ");
-        }
+// async function getCategories(){
+//     try{
+//         const getCategories = await fetch('http://localhost:5000/search');
         
-        // showCategories(feedFetchItems);
-    }
-    catch (e) {
-        console.log(e);
-    }
-}
-feedFetch()
+//         const jsonCategories =await getCategories.json();
+//         console.log("check"+ jsonCategories);
+//     }catch(e){
+//         console.log(e);
+//     }
+// }
+// getCategories()
+
+// const getDataCategories =
+
 
 // const getCategoriesButton = document.querySelector('#category_search');
 // console.log(getCategoriesButton);

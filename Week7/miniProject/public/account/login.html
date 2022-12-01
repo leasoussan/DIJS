@@ -8,7 +8,34 @@
 </head>
 <body>
     
+  
+    <form id="formlogin" onsubmit="login(event)">
+        <div class="container">
+          <h1>LOGIN</h1>
+          
+          <label for="username"><b>Username</b></label>
+          <input type="text" placeholder="Enter username" name="username" id="username" required>
+          
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" id="email" required>
+      
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" id="password" required>
 
+          <button type="submit" class="loginbutton">login</button>
+        </div>
+        
+        <div class="container signin">
+          <p>Dont have an account yet? <a href="/public/account/register.html">Register</a>.</p>
+        </div>
+
+
+        <div id="root"></div>
+      </form> 
     
+
+
+
+    <script src="../register.js"></script>
 </body>
 </html>
