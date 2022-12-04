@@ -4,17 +4,14 @@ export const addOne = (value)=>{
     // return an object from hewre tp the reducer - action in the reducer argument 
     return{
         type:'INCREASE_COUNT',
-        payload: value
     }
 }
 
 export const subOne = (value)=>{
-    console.log("value-", value);
 
     // return an object from hewre tp the reducer - action in the reducer argument 
     return{
         type:'DECREASE_COUNT',
-        payload: value
     }
 }
 

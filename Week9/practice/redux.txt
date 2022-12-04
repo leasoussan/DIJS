@@ -1,0 +1,53 @@
+redux is a STATE MANAGEMENT.
+ALl the states will be in one place 
+not in class or function componenent 
+Its going to be stored in store states
+it doesnt mean that we wont have a statae on a componenent
+ so most componenet that have the same state will be state of the store 
+ we will see how to connect all states, and the actions from the store
+
+
+ this is a JS file - not componenet 
+ create a fil in src - redux.js NOT CAPITAL LETTER
+
+
+ ACTION > when we have onChange on an imput see app input
+
+
+
+
+
+ TO IMPLEMENT a redux
+ 1- index 
+ import {createStore} from 'redux';
+import { Provider } from 'react-redux';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+//we import the reducer
+import { reducer } from './reducer';
+const store = createStore(reducer)
+
+
+2 CREATE  a reducer  like
+
+let initState={
+    property_one:'one',
+    property_two:'two',
+  
+}
+
+export const reducer =(state=initState, action={})=>{
+    switch (action.type){
+        case 'PROP_ONE':
+            return {...state, property_one:action.payload};
+        case 'PROP_TWO':
+            return {...state, property_two:action.payload};
+
+        default:
+            return {...state}
+    }
+}
+
+
+3 Import the Store in app.js

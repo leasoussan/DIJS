@@ -53,8 +53,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        add: (plus) => {dispatch(addOne(plus))},
-        sub: (sub)=>{dispatch(subOne(sub))},
+        add: () => {dispatch(addOne())},
+        sub: ()=>{dispatch(subOne())},
         
         }}
 
