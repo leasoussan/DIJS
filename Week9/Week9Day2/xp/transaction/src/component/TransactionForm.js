@@ -1,76 +1,92 @@
 import { connect } from "react-redux"
 import React from "react";
-import { insertTransaction, updateTransaction,updateIndexOfTransaction } from '../redux/actions'
+import { insert_trx, updateTransaction } from '../redux/actions'
 
 
 class TransactionForm extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             accountNumber: '',
             fsc: '',
-            transaction_name: '',
+            name: '',
             amount: '',
-            current_index:0,
         }
     }
 
-    componentDidMount(){
-        const getLastIndex = localStorage.getItem('transaction')
-        // this.setState({current_index:})
-        // this.setState({lastIndex : () => this.props.change_index(getLastIndex)}) 
+    // componentDidMount(){
+    //     const getLastIndex = localStorage.getItem('transaction')
+    //     // this.setState({current_index:})
+    //     // this.setState({lastIndex : () => this.props.change_index(getLastIndex)}) 
 
-        console.log(this.props.index);     
-    }
+    //     console.log(this.props.index);     
+    // }
 
 
-    componentDidUpdate(prevProps, prevState, snapshot){
-        const prevprop = prevProps.index;
-        // const prevstae = prevS        localStorage.setItem(`transaction${}`, this.state)
-    }
+    // componentDidUpdate(prevProps, prevState, snapshot){
+    //     const prevprop = prevProps.index;
+    //     // const prevstae = prevS        localStorage.setItem(`transaction${}`, this.state)
+    // }
     handleInputChange = (e) => {
-        e.preventDefault();
         this.setState({ [e.target.name]: e.target.value })
     }
 
     handleSubmit = (e) => {
-        e.preventDefault();
-        
-        localStorage.setItem(`transaction-${this.currentIndex}`, this.state)
-        e.target.reset()
+      e.preventDefault()
+      if(this.props.currentIndex === -1){
+        this.props.handleInsert(this.state)
+      }
+      else{
+        this.props.handleUpdate(this.state)
+      }
+      this.setState({
+        account:'',
+        fsc:'',
+        name:'',
+        amount:''
+      })
     }
+    componentDidUpdate(prevProps,prevState){
+      // console.log('prevProps=>' ,prevProps);
+      // console.log('prevState=>' ,prevState);
+      if(prevProps.currentIndex != this.props.currentIndex && this.props.currentIndex!=-1){
+        const trx=this.props.list[this.props.currentIndex];
+        // console.log('trx',trx);
+        this.setState({
+          account:trx.account ||'',
+        fsc:trx.fsc||'',
+        name:trx.name||'',
+        amount:trx.amount||''
+        })
+      }
+    }
+    
 
-    render() {
-        // const locatStorageData = localStorage.getItem("transactionList")
-        // console.log("locatStorageData", locatStorageData);
-        return (
-            <div>
-                <form onSubmit={this.handleSubmit} style={{ display: 'flex', flexDirection: "column", width: "300px" }}>
-                    accountNumber:<input name="accountNumber" type="text" onChange={this.handleInputChange} />
-                    FSC: <input name="fsc" type="text" onChange={this.handleInputChange} />
-                    name:<input name="transaction_name" type="text" onChange={this.handleInputChange} />
-                    amount:<input name="amount" type="number" onChange={this.handleInputChange} />
-                    <input type='submit' value='Submit' onClick={() => this.props.insert((this.state))} />
-                </form>
-               
-            </div>
+      render(){
+        return(
+          <form onSubmit={this.handleSubmit}>
+            <input value={this.state.account} name='account' placeholder='Account Number' onChange={this.handleInputChange} type='text' /><br/>
+            <input value={this.state.fsc} name='fsc' placeholder='FSC' onChange={this.handleInputChange} type='text' /><br/>
+            <input value={this.state.name} name='name' placeholder='Name' onChange={this.handleInputChange} type='text' /><br/>
+            <input value={this.state.amount} name='amount' placeholder='Amount' onChange={this.handleInputChange} type='text' /><br/>
+            <input type='submit' value={this.props.currentIndex===-1 ? 'Submit' : 'Update' } />
+          </form>
         )
-    }
+      }
 }
 // this is for from the global state to componement
 const mapStateToProps = (state) => {
     console.log("curentindex in here", state);
     return {
-        transactionList: state.transactionList,
-        index: state.currentIndex
+        list: state.list,
+        currentIndex: state.currentIndex
     }
 }
 // this im dispatching to a global props - action then reducer 
 const mapDispatchToProps = (dispatch) => {
     return {
-        insert: (transaction, index) => dispatch(insertTransaction(transaction,index)),
-        update: (transaction) => dispatch(updateTransaction(transaction)),
-        // index_change: (id)=> dispatch(updateIndexOfTransaction)(id)
+        insert: (trx) => dispatch(insert_trx(trx)),
+        update: (trx) => dispatch(updateTransaction(trx)),
     }
 }
 

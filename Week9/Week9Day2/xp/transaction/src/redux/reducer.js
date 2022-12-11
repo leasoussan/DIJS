@@ -1,24 +1,37 @@
-import {INSERT_TRANSACTION, UPDATE_TANSACTION, DELETE_TANSACTION, UPDATE_INDEX_TANSACTION} from '../redux/actions.js'
-
+import { INSERT_TRANSACTION, UPDATE_TANSACTION, DELETE_TANSACTION, UPDATE_INDEX_TANSACTION } from '../redux/actions.js'
+import { addToLocatStorage, getFromLocalStorage } from '../helpers/storage.js'
 const initState = {
-    transactionList: [],
-    currentIndex: 0
+    list: getFromLocalStorage('trx'),
+    currentIndex: -1
 }
 
 
-export const reducer = (state = initState, actions = {}) => {
+export const reducer = (state = initState, action = {}) => {
 
-    switch (actions.type) {
+    switch (action.type) {
+        
         case INSERT_TRANSACTION:
-            console.log(actions.payload);
-            return { ...state, transactionList: actions.payload, currentIndex:actions.payload }
-        case UPDATE_TANSACTION:
-            return { ...state}
-        case DELETE_TANSACTION:
-            return { ...state }
-        case UPDATE_INDEX_TANSACTION:
+            const newlist = [...state.list]      
+            newlist.push(action.payload);
+            addToLocatStorage('trx', newlist)
+            return { ...state, list: newlist, currentIndex: -1 }
 
-            return { ...state, currentIndex:actions.payload}
+        case UPDATE_TANSACTION:
+            state.list[state.currentIndex] =action.payload
+            addToLocatStorage('trx', [...state.list])
+
+            return{ ...state, list:[state.list], currentIndex:-1}
+        
+        case DELETE_TANSACTION:
+            state.list.splice(action.payload, 1)
+            addToLocatStorage('trx', [...state.list])
+            
+            return { ...state , list:[...state.list], currentIndex:-1}
+        
+        case UPDATE_INDEX_TANSACTION:
+            addToLocatStorage('trx', [...state.list])
+            return {...state, currentIndex:action.payload}
+      
         default:
             return { ...state }
     }

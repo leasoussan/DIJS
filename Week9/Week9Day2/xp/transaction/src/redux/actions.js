@@ -7,10 +7,10 @@ export const UPDATE_INDEX_TANSACTION= 'UPDATE-INDEX'
 
 
 
-export const insertTransaction = (data)=>{
+export const insert_trx= (trx)=>{
     return{
         type: INSERT_TRANSACTION, 
-        payload:data
+        payload:trx
     }
 }
 
