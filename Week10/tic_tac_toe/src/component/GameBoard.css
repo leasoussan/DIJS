@@ -1,0 +1,29 @@
+#game_board{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     width: 80%;
+     background-color: beige;
+     border:solid 3px green
+}
+
+
+#game_starter{
+    background-color: antiquewhite;
+
+
+ }
+#grid_board{
+    background-color: antiquewhite;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr;
+    border: solide 3px red;
+    width: 20rem;
+    height: 20rem;
+
+}
+
+.moveBox{
+    border: 1px solid red;
+}
