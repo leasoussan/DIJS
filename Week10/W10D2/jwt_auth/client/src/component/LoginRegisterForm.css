@@ -1,0 +1,9 @@
+.show_register_form{
+    border: solid black 3px;
+    width: 35%
+
+}
+
+.show_login_form{
+    width: 50%
+}
