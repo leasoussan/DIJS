@@ -6,57 +6,70 @@ class Robots extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            robots: robots.superheroes,
+            robots: robots.superheroes.map(robot => ({ ...robot, clicked: false })),
             score: 0,
             topScore: 0,
         };
     }
 
 
-    // componentDidUpdate() {
-    //     const robotsList = this.state.robots
-    //     // console.log(robotsList );
-
-    //     let newAray = robotsList
-    //                 .map(item => ({item, sort: Math.random()})) 
-    //                 .sort((a,b) => a.sort - b.sort) 
-    //                 .map(({item})=> item);
-    //     this.setState({robots:newAray})                               
-    //   }
-
     handleShuffle = () => {
-        console.log("move");
-        const robotsList = this.state.robots
-        // console.log(robotsList );
+        this.setState(prevState => {
+            const robotsList = [...prevState.robots];
+            let newArray = robotsList
+                .map(item => ({ item, sort: Math.random() }))
+                .sort((a, b) => a.sort - b.sort)
+                .map(({ item }) => item);
+            console.log("newArray", newArray);
+            return { robots: newArray };
 
-        let newAray = robotsList
-            .map(item => ({ item, sort: Math.random() }))
-            .sort((a, b) => a.sort - b.sort)
-            .map(({ item }) => item);
-
-            // console.log(robotsList);
-        this.setState({robots: newAray })
-        console.log(this.state.robots);
-    }
+        });
+    };
 
 
     handleClick = (e) => {
         const clickedEle = e.target.parentElement.id;
+        const robotsList =this.state.robots;
 
-        if (this.state.robots[clickedEle].clicked === false) {
-            this.state.robots[clickedEle].clicked = true;
+        const robotToUpdat =  
+        console.log("toUp", robotToUpdat);
+    
+        // {
+        //     if(!value.clicked){
+               
+        //     }
+        //     console.log(this.state.robots);
+        
+        //   });
+          
+        // if (this.state.robots[clickedEle].clicked === false) {
+          
 
-            this.setState({ score: this.state.score + 1 })
-            if (this.state.score > this.state.topScore) {
-                this.setState({ topScore: this.state.score })
-            }
-            this.handleShuffle(this.state.robots)
-        } else {
-            this.setState({ score: 0 })
-            this.state.robots.map(robot => { robot.clicked = false })
+        // //     this.setState(prevState => {
+        // //         const updatedRobots = [...prevState.robots];
+               
+        // //         console.log("updated elem",  updatedRobots)
+        // //           updatedRobots[clickedEle].clicked = true;
+        // //           const updatedScore = prevState.score + 1;
+        // //           const updatedTopScore = updatedScore > prevState.topScore ? updatedScore : prevState.topScore;
+        // //           return {
+        // //             robots: updatedRobots,
+        // //             score: updatedScore,
+        // //             topScore: updatedTopScore
+        // //           };
 
-        }
-
+        // //         this.handleShuffle();
+        // //     })
+        // //     // };
+        
+        // else {
+        //     this.setState(prevState => {
+        //         const updatedRobots = prevState.robots.map(robots => {
+        //             return { ...robots, clicked: false };
+        //         });
+        //         return { robots: updatedRobots, score: 0 }
+        //     });
+        // }
 
     }
 
@@ -64,39 +77,35 @@ class Robots extends React.Component {
 
 
     render() {
+        const { score, topScore, robots } = this.state
+
+        const robotElements = robots.map((robot) => (
+            <div key={robot.id} id={robot.id} onClick={this.handleClick} onChange={this.handleShuffle} className="card_style">
+                <img src={robot.image} alt={robot.name} />
+                <div className="title_robot">
+                    <h4>{robot.name}</h4>
+
+                    <h4>{robot.occupation}</h4>
+                </div>
+            </div>
+        ));
+
+
+
         return (
             <>
-                <div>
-                    your Score is {this.state.score}
+                <div className="game_header">
+                    <h1> Memory Game </h1>
+                    <h3> Click Once on each Marvelouser....if you cliced twice ...you lose</h3>
+                    <div className="scores_records">
+                        <div>Your score is {score}</div>
+                        <div>Your top score is {topScore}</div>
+                    </div>
+
                 </div>
-                <div>
-                    your TOP SCORE**** is {this.state.topScore}
-                </div>
-                <div className="board_display">
 
-                    {
-                        this.state.robots.map(item => {
-                            return (
-
-                                <div key={item.id} id={item.id} onClick={this.handleClick} onChange={this.handleShuffle} className="card_style">
-                                    <img src={item.image}></img>
-                                    <div>
-
-                                        <h4>{item.name}</h4>
-                                        <h4>{item.occupation}</h4>
-
-                                    </div>
-
-                                </div>
-
-                            )
-                        })
-                    }
-                </div>
-            </>
-
-
-        )
+                <div className="memory-game-panel">{robotElements}</div>
+            </>)
     }
 }
 

@@ -1,35 +1,100 @@
-.board_display {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: flex-start;
-    overflow: auto;
-    border: solid 3px aqua;
-    /* height: 100%; */
-
-}
-
-
-.card_style {
+/* Container for the whole page */
+.container {
     display: flex;
     flex-direction: column;
-    height: 350px;
-    width: 250px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+.game_header{
+    display: flex;
+    flex-direction: column;
     border: solid 3px red;
-    margin: 2rem;
-    position: relative;
-     cursor: pointer;
+    justify-items: center;
+    align-items: center;
 }
 
-.card_style img {
+
+  /* Scores section at the top */
+  .scores {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  /* Memory game panel */
+  .memory-game-panel {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 70%;
+    padding: 2rem;
+    background-color: #f2f2f2;
+    border: solid 2px #ccc;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Card style */
+  .card_style {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 350px;
+    width: 250px;
+    margin: 1rem;
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card_style:hover {
+    transform: scale(1.05);
+  }
+  
+  .card_style img {
     width: 80%;
     height: 80%;
     object-fit: cover;
-}
-
-.card_style div{
+    border-radius: 5px;
+  }
+  
+  .card_style div {
     height: 20%;
-    background-color: antiquewhite;
-}
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .title_robot{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 768px) {
+    .memory-game-panel {
+      height: 100%;
+    }
+    
+    .card_style {
+      height: 250px;
+      width: 180px;
+      margin: 0.5rem;
+    }
+  }
+  
